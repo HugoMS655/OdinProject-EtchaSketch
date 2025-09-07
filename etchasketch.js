@@ -1,16 +1,29 @@
 const container = document.querySelector(".container");
+
 const MAX_LIMIT = 100;
 
 document.addEventListener("DOMContentLoaded", () => {
+  alterMainContainer();
+  generateButton();
+});
+
+function alterMainContainer() {
+  container.style.display = "flex";
+  container.style.boxSizing = "border-box";
+  container.style.padding = "0";
+  container.style.margin = "0";
+}
+
+function generateButton() {
   const btn = document.createElement("button");
   btn.textContent = "Set Square number";
   btn.style.fontSize = 20;
   btn.style.fontWeight = "bold";
-  btn.addEventListener("click", promptDivNumber);
+  btn.addEventListener("click", promptNumber);
   container.appendChild(btn);
-});
+}
 
-function promptDivNumber() {
+function promptNumber() {
   let number;
   do {
     let input = prompt("Enter number of squares per row:");
@@ -27,4 +40,9 @@ function promptDivNumber() {
   generateGrid(number);
 }
 
-function generateGrid(numberOfSquares) {}
+function generateGrid(numberOfSquares) {
+  const oldSquares = container.querySelectorAll(".square");
+  if (oldSquares !== null) {
+    oldSquares.forEach((square) => square.remove());
+  }
+}
