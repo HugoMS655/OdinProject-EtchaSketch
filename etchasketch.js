@@ -10,6 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
   container.appendChild(btn);
 });
 
-function promptDivNumber() {}
+function promptDivNumber() {
+  let number;
+  do {
+    let input = prompt("Enter number of squares per row:");
+    number = parseInt(input, 10);
+    if (input === null) {
+      alert("Prompt cancelled.");
+      return null; // exit on cancel
+    }
+    if (isNaN(number) || number > MAX_LIMIT || number <= 0) {
+      alert("Please enter a number (1-100)!");
+    }
+  } while (isNaN(number) || number > MAX_LIMIT || number <= 0);
+  console.log(number);
+  return number;
+}
 
 function generateGrid(numberOfSquares) {}
