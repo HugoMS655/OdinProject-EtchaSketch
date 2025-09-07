@@ -23,8 +23,8 @@ function promptDivNumber() {
       alert("Please enter a number (1-100)!");
     }
   } while (isNaN(number) || number > MAX_LIMIT || number <= 0);
-  console.log(number);
-  return number;
+
+  generateGrid(number);
 }
 
 function generateGrid(numberOfSquares) {}
